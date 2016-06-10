@@ -52,7 +52,8 @@ namespace Tonic{
       const Generator getOutputGen() { return outputGen_; };
       
       void setLimitOutput(bool shouldLimit) { limitOutput_ = shouldLimit; };
-      
+      Limiter getLimiter() { return limiter_; };
+
       ControlParameter addParameter(string name, TonicFloat initialValue);
       
       void addParameter(ControlParameter parameter);
@@ -114,11 +115,15 @@ namespace Tonic{
       return gen()->getOutputGen();
     }
 
-    //! Set whether synth uses dynamic limiter to prevent clipping/wrapping. Defaults to true.
+    //! Set whether synth uses dynamic limiter to prevent clipping/wrapping. Defaults to false.
     void setLimitOutput(bool shouldLimit) {
       gen()->setLimitOutput(shouldLimit);
     }
-    
+
+    Limiter getLimiter() {
+      return gen()->getLimiter();
+    }
+
     //! Add a ControlParameter with name "name"
     ControlParameter addParameter(string name, TonicFloat initialValue = 0.f)
     {

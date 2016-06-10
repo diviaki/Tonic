@@ -19,7 +19,7 @@ namespace Tonic {
 
   namespace Tonic_ {
     
-    Synth_::Synth_() : limitOutput_(true) {
+    Synth_::Synth_() : limitOutput_(false) {
       limiter_.setIsStereo(true);
     }
 
