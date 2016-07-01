@@ -24,8 +24,9 @@ namespace Tonic { namespace Tonic_{
   
   FilteredFBCombFilter6_::FilteredFBCombFilter6_() : lastOutLow_(0), lastOutHigh_(0)
   {
-    // don't care about interpolation here, since this is optimized for reverb (faster)
-    delayLine_.setInterpolates(false);
+    // was: don't care about interpolation here, since this is optimized for reverb (faster)
+    // do care about interpolation for generating correctly tuned string sounds
+    //delayLine_.setInterpolates(false);
   }
   
 } // Namespace Tonic_
