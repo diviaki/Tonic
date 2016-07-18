@@ -59,6 +59,10 @@ namespace Tonic {
       //! set sample table for lookup. MUST BE POWER OF 2 IN LENGTH
       void setLookupTable( SampleTable table );
 
+      void setPhase( float p ){
+        phase_ = p;
+      }
+
     };
     
     inline void TableLookupOsc_::computeSynthesisBlock( const SynthesisContext_ & context ){
@@ -127,7 +131,8 @@ namespace Tonic {
     public:
     
       TableLookupOsc & setLookupTable( SampleTable lookupTable );
-    
+      TableLookupOsc & setPhase( float p );
+
       TONIC_MAKE_GEN_SETTERS(TableLookupOsc, freq, setFrequency);
   };
 

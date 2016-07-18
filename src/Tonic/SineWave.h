@@ -20,7 +20,7 @@ namespace Tonic {
     
   public:
     
-    SineWave();
+    SineWave(float phase=0.0f);
     
     TONIC_MAKE_GEN_SETTERS(SineWave, freq, setFrequency)
 

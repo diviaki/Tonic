@@ -10,15 +10,14 @@
 
 namespace Tonic {
   
-  SineWave::SineWave(){
+  SineWave::SineWave(float phase){
     
     static string const TONIC_SIN_TABLE = "_TONIC_SIN_TABLE_";
-    
+    const unsigned int tableSize = 4096;
+
     // As soon as the first SineWave is allocated, persistent SampleTable is created. Will stay in memory for program lifetime.
     if (!Tonic_::s_oscillatorTables()->containsObjectNamed(TONIC_SIN_TABLE)){
-      
-      const unsigned int tableSize = 4096;
-      
+
       SampleTable sineTable = SampleTable(tableSize+1, 1);
       TonicFloat norm = 1.0f / tableSize;
       TonicFloat *data = sineTable.dataPointer();
@@ -34,7 +33,8 @@ namespace Tonic {
       this->gen()->setLookupTable(Tonic_::s_oscillatorTables()->objectNamed(TONIC_SIN_TABLE));
     }
 
-    
+    if (phase)
+      this->gen()->setPhase((phase/(2*M_PI))*tableSize);
   }
   
 } // Namespace Tonic

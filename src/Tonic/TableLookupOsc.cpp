@@ -28,7 +28,7 @@ namespace Tonic {
     void TableLookupOsc_::reset(){
       phase_ = 0.0f;
     }
-    
+	  
     void TableLookupOsc_::setLookupTable(SampleTable table){
       if (table.channels() != 1){
         error("TableLookupOsc expects lookup table with 1 channel only");
@@ -56,6 +56,10 @@ namespace Tonic {
     gen()->setLookupTable(lookupTable);
     return *this;
   }
-  
+
+  TableLookupOsc & TableLookupOsc::setPhase(float p){
+    gen()->setPhase(p);
+    return *this;
+  }
   
 } // Namespace Tonic
