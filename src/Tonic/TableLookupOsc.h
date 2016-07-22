@@ -40,6 +40,7 @@ namespace Tonic {
       double phase_;
       
       Generator frequencyGenerator_;
+      ControlGenerator syncGenerator_;
       TonicFrames modFrames_;
       
       void computeSynthesisBlock( const SynthesisContext_ & context );
@@ -63,6 +64,9 @@ namespace Tonic {
         phase_ = p;
       }
 
+      void setSync( ControlGenerator genArg){
+        syncGenerator_ = genArg;
+      }
     };
     
     inline void TableLookupOsc_::computeSynthesisBlock( const SynthesisContext_ & context ){
@@ -77,7 +81,10 @@ namespace Tonic {
       TonicFloat *samples = &outputFrames_[0];
       TonicFloat *rateBuffer = &modFrames_[0];
       TonicFloat *tableData = lookupTable_.dataPointer();
-      
+ 
+      if (syncGenerator_.tick(context).triggered)
+        reset();
+
       // R. Hoelderich style fast phasor.
       
       FastPhasor sd;
@@ -134,6 +141,7 @@ namespace Tonic {
       TableLookupOsc & setPhase( float p );
 
       TONIC_MAKE_GEN_SETTERS(TableLookupOsc, freq, setFrequency);
+      TONIC_MAKE_CTRL_GEN_SETTERS(TableLookupOsc, sync, setSync);
   };
 
 }
