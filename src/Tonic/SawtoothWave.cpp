@@ -23,6 +23,9 @@ namespace Tonic { namespace Tonic_{
   
 } // Namespace Tonic_
   
-  
+   SawtoothWave::SawtoothWave(float phase){
+     if (phase)
+      this->gen()->setPhase(phase);
+  }
   
 } // Namespace Tonic

@@ -47,7 +47,10 @@ namespace Tonic {
       void setSlopeGenerator( Generator gen ){
         slopeGen_ = gen;
       }
-      
+	    
+      void setPhase( float p ){
+        phaseAccum_ = p*TONIC_SAW_RES;
+      }
       
     };
     
@@ -188,7 +191,9 @@ namespace Tonic {
   {
     
     public:
-      
+	  
+      SawtoothWave(float phase=0.0f);
+	  
       TONIC_MAKE_GEN_SETTERS(SawtoothWave, freq, setFrequencyGenerator);
       
       //! set whether it's a descending sawtooth (default) or ascending
