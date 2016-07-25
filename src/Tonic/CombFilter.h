@@ -34,7 +34,7 @@ namespace Tonic {
       
       CombFilter_();
       
-      void initialize(float initialDelayTime, float maxDelayTime);
+      void initialize(float initialDelayTime, float maxDelayTime, bool interpolate = true);
       
       void setDelayTimeGen(Generator gen){ delayTimeGen_ = gen; };
       
@@ -181,7 +181,7 @@ namespace Tonic {
   class FilteredFBCombFilter6 : public TemplatedEffect<FilteredFBCombFilter6, Tonic_::FilteredFBCombFilter6_>
   {
   public:
-    FilteredFBCombFilter6(float initialDelayTime = 0.1f, float maxDelayTime = -1);
+    FilteredFBCombFilter6(float initialDelayTime = 0.1f, float maxDelayTime = -1, bool interpolate = true);
     TONIC_MAKE_GEN_SETTERS(FilteredFBCombFilter6, delayTime, setDelayTimeGen);
     TONIC_MAKE_CTRL_GEN_SETTERS(FilteredFBCombFilter6, scaleFactor, setScaleFactorGen);
     TONIC_MAKE_CTRL_GEN_SETTERS(FilteredFBCombFilter6, lowpassCutoff, setLowCutoff);

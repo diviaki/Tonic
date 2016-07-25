@@ -98,8 +98,8 @@ namespace Tonic { namespace Tonic_{
       combFilterDelayTimes_[TONIC_RIGHT].push_back(delayR);
       combFilterScaleFactors_[TONIC_LEFT].push_back(scaleL);
       combFilterScaleFactors_[TONIC_RIGHT].push_back(scaleR);
-      combFilters_[TONIC_LEFT].push_back(FilteredFBCombFilter6(0.01f, 0.125f).delayTime(delayL).scaleFactor(scaleL));
-      combFilters_[TONIC_RIGHT].push_back(FilteredFBCombFilter6(0.01f, 0.125f).delayTime(delayR).scaleFactor(scaleR));
+      combFilters_[TONIC_LEFT].push_back(FilteredFBCombFilter6(0.01f, 0.125f, false).delayTime(delayL).scaleFactor(scaleL));
+      combFilters_[TONIC_RIGHT].push_back(FilteredFBCombFilter6(0.01f, 0.125f, false).delayTime(delayR).scaleFactor(scaleR));
     }
     
     for (unsigned int i=0; i<TONIC_REVERB_N_ALLPASS; i++){
