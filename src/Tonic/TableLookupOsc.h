@@ -60,6 +60,10 @@ namespace Tonic {
       //! set sample table for lookup. MUST BE POWER OF 2 IN LENGTH
       void setLookupTable( SampleTable table );
 
+      SampleTable getLookupTable(){
+        return lookupTable_;
+      }
+
       void setPhase( float p ){
         phase_ = p;
       }
