@@ -10,7 +10,7 @@
 #define TONIC_REVERB_MIN_TAPS 2
 #define TONIC_REVERB_MAX_TAPS 20
 
-#define TONIC_REVERB_MIN_WALL_DIST 3.0f // meters
+#define TONIC_REVERB_MIN_WALL_DIST 0.75f // meters
 #define TONIC_REVERB_MAX_WALL_DIST 10.0f // meters
 #define TONIC_REVERB_SOS 340.0f // m/s, approximate
 #define TONIC_REVERB_AIRDECAY -0.159 // db/m, approximate
@@ -24,7 +24,7 @@
 #define  TONIC_REVERB_STEREO_SPREAD 0.001f
 
 // Number of allpass filters per channel
-#define  TONIC_REVERB_N_ALLPASS 4
+#define  TONIC_REVERB_N_ALLPASS 3
 #define  TONIC_REVERB_ALLPASS_COEF 0.5f
 
 namespace Tonic { namespace Tonic_{
@@ -54,7 +54,7 @@ namespace Tonic { namespace Tonic_{
   
   // Changing these will change the character of the late-stage reverb.
   static const TonicFloat combTimeScales_[TONIC_REVERB_N_COMBS] = {1.17, 1.12, 1.02, 0.97, 0.95, 0.88, 0.84, 0.82};
-  static const TonicFloat allpassTimes_[TONIC_REVERB_N_ALLPASS] = {0.0051, 0.010, 0.012, 0.00833};
+  static const TonicFloat allpassTimes_[TONIC_REVERB_N_ALLPASS] = {0.00256, 0.00764, 0.02383};
   
   Reverb_::Reverb_(){
     
