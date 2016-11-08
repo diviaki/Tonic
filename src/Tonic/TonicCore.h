@@ -303,29 +303,25 @@ namespace Tonic {
     return a + r;
 }
 
-  //! Tonic exception class
-  // May want to implement custom exception behavior here, but for now, this is essentially a typedef
-  class TonicException : public runtime_error
-  {
-    public:
-    TonicException(string const& error) : runtime_error(error) {};
-
-  };
-  
+#ifdef DEBUG
   // -- Logging --
   
   static void error(string message, bool fatal = false){
     // maybe also log to console?
     printf("Tonic::error: %s\n", message.c_str() );
     if (fatal){
-      throw TonicException(message);
+      exit(0);
     }
   }
   
   static void warning(string message){
     printf("Tonic::warning: %s\n", message.c_str());
   }
-  
+#else
+#define error(...)
+#define warning(...)
+#endif
+
   static void debug(string message){
 #ifdef TONIC_DEBUG
     printf("Tonic::debug: %s\n", message.c_str());
