@@ -37,6 +37,7 @@ namespace Tonic {
       
       SampleTable lookupTable_;
       
+	  double phaseAC_;
       double phase_;
       
       Generator frequencyGenerator_;
@@ -61,7 +62,7 @@ namespace Tonic {
       void setLookupTable( SampleTable table );
 
       void setPhase( float p ){
-        phase_ = p;
+        phase_ = phaseAC_ = p;
       }
 
       void setSync( ControlGenerator genArg){

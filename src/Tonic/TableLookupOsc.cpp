@@ -19,14 +19,14 @@ namespace Tonic {
     }
   
     TableLookupOsc_::TableLookupOsc_() :
-      phase_(0.0)
+      phase_(0.0), phaseAC_(0.0)
     {
       modFrames_.resize(kSynthesisBlockSize, 1);
       lookupTable_ = SampleTable(kSynthesisBlockSize,1);
     }
     
     void TableLookupOsc_::reset(){
-      phase_ = 0.0f;
+      phase_ = phaseAC_;
     }
 	  
     void TableLookupOsc_::setLookupTable(SampleTable table){
