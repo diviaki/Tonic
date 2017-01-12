@@ -53,6 +53,8 @@ namespace Tonic{
       
       void fillBufferOfFloats(float *outData,  unsigned int numFrames, unsigned int numChannels);
 
+		double getContextTime(){return synthContext_.elapsedTime;}
+
     };
     
     inline void BufferFiller_::lockMutex(){

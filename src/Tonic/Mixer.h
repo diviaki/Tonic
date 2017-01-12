@@ -59,7 +59,11 @@ namespace Tonic {
   class Mixer : public TemplatedBufferFiller<Tonic_::Mixer_>{
     
   public:
-    
+
+	double getContextTime(){
+		return gen()->getContextTime();
+	}
+
     void addInput(BufferFiller input){
       gen()->lockMutex();
       gen()->addInput(input);
